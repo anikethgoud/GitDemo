@@ -3,47 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="index.css" rel="stylesheet">
+    <title>Demo Page with Animations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s ease;
+        }
+
+        header {
+            padding-top: 40px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            transition: background-color 0.5s ease;
+            
+        }
+        header nav a{
+            align-items: center;
+            text-align: center;
+        }
+        header nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .main-nav {
+            margin-top: 15px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #ffeb3b; /* Highlight color on hover */
+        }
+
+        .main-nav a::after {
+            content: '';
+            display: block;
+            height: 2px;
+            background: #ffeb3b; /* Highlight underline */
+            transition: width 0.3s ease, background-color 0.3s ease;
+            width: 0;
+            margin: auto;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .sidebar {
+            background-color: #e7e7e7;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease; /* Transition for link color */
+        }
+
+        .sidebar ul li a:hover {
+            color: #4CAF50; /* Change color on hover */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Animation for the main content */
+        main p {
+            opacity: 0; /* Start hidden */
+            transform: translateY(20px); /* Start below */
+            animation-name: fadeInUp; /* Animation name */
+            animation-duration: 1s; /* Duration of animation */
+            animation-fill-mode: forwards; /* Keep final state */
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1; /* Fully visible */
+                transform: translateY(0); /* Move to original position */
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <section>
-            Demonstrate.
-        </header>
-        <section>
 
-        <section>
-            <nav>
-                <a href="home.html">Home.</a>
-                <a href="about.html">About.</a>
-                <a href="login.html">Login.</a>
-            </nav>
-        </section>
+<header>
+    <h1>Demo.</h1>
+    <nav class="main-nav">
+        <a href="index.html">Home.</a>
+        <a href="about.html">About.</a>
+        <a href="login.html">Login.</a>
+    </nav>
+</header>
 
-        <section>
-            <aside>
-                <nav>
-                    <ul>
-                        <li><a href="home.html">Home.</a></li>
-                        <il><a href="about.html">About.</a></il>
-                        <li><a href="login.html">Login.</a></li>
-                    </ul>
-                </nav>
-            </aside>
-        </section>
+<aside class="sidebar">
+    <h2>Quick Links</h2>
+    <ul>
+        <li><a href="index.html">Home.</a></li>
+        <li><a href="about.html">About.</a></li>
+        <li><a href="login.html">Login.</a></li>
+    </ul>
+</aside>
 
-        <section>
-            <main>
-                <p>Hello! This is a demo page.</p>
-            </main>
-        </section>
+<main>
+    <p>Hello! This is a demo page designed to showcase various animations and transitions. Feel free to explore the links above.</p>
+</main>
 
-        <section>
-            <footer>
-                2025© All Rights Reserved.
-            </footer>
-        </section>
-    </header>
+<footer>
+    <p>2025 © All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Fade in effect for the main content
+    window.onload = function() {
+      const mainContent = document.querySelector('main p');
+      mainContent.style.opacity = '1'; // Make it visible
+      mainContent.style.transform = 'translateY(0)'; // Reset position
+    };
+</script>
+
 </body>
 </html>
